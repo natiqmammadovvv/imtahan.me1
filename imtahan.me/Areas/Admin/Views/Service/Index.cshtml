@@ -1,0 +1,66 @@
+﻿@using imtahan.me.Models
+@model List<Service>
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <a class="btn btn-primary" asp-action="Creat" asp-controller="Service">Creat Service</a>
+                     
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            User
+                                        </th>
+                                        <th>
+                                            Name
+                                        </th>
+                                        <th>
+                                            Description
+                                    
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach(Service service in Model){
+                                    <tr>
+                                        <td class="py-1">
+                                            <img src="~/Admin/images/faces/face1.jpg" alt="image" />
+                                        </td>
+                                        <td>
+                                            @service.Name
+                                        </td>
+                                      
+                                        <td>
+                                            @service.Description
+                                        </td>
+                                            <td>
+                                                <a class="btn btn-primary" asp-action="Detail" asp-controller="Service" asp-route-id="@service.Id">Detail</a>
+                                                <a class="btn btn-primary" asp-action="Update" asp-controller="Service">Update</a>
+                                                <a class="btn btn-primary" asp-route-action="Remove" asp-route-controller="Service">Remove</a>
+                                            </td>
+                                    </tr>
+                                   }
+                                 
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+    </div>
